@@ -2,7 +2,7 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
-@app.route("/", method=["POST"])
+@app.route("/", methods=["POST"])
 def hook():
     print(request.data)
     return "Hello World"

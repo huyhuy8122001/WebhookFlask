@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, logging, Response
 import requests
 import json
 
@@ -36,7 +36,7 @@ def hook():
     print(type(request_data))
     # request_data_dict = json.loads(request_data.decode('utf-8'))
     # print(type(request_data_dict))
-    request_status_code = request.get_data()
+    request_status_code = request.headers
     print(request_status_code)
     
     # timestamp = request_data_dict['timestamp']

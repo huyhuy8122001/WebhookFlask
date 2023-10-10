@@ -36,7 +36,7 @@ def hook():
     print(type(request_data))
     # request_data_dict = json.loads(request_data.decode('utf-8'))
     # print(type(request_data_dict))
-    request_status_code = request.headers
+    request_status_code = Response.status_code()
     print(request_status_code)
     
     # timestamp = request_data_dict['timestamp']

@@ -34,18 +34,18 @@ def hook():
     request_data = request.data
     print(request_data)
     print(type(request_data))
-    # request_data_dict = json.loads(request_data.decode('utf-8'))
-    # print(type(request_data_dict))
-    request_status_code = Response.status_code
-    print(request_status_code)
+    request_data_dict = json.loads(request_data.decode('utf-8'))
+    print(type(request_data_dict))
+    # request_status_code = request.status_code()
+    # print(request_status_code)
     
-    # timestamp = request_data_dict['timestamp']
-    # event_name = request_data_dict['event_name']
-    # sender_id = request_data_dict['sender']['id']
-    # recipient_id = request_data_dict['recipient']['id']
-    # text = request_data_dict['message']['text']
+    timestamp = request_data_dict['timestamp']
+    event_name = request_data_dict['event_name']
+    sender_id = request_data_dict['sender']['id']
+    recipient_id = request_data_dict['recipient']['id']
+    text = request_data_dict['message']['text']
     
-    # create_row_baserow(timestamp, event_name, sender_id, recipient_id, text)
+    create_row_baserow(timestamp, event_name, sender_id, recipient_id, text)
     
     return "Hello World"
 

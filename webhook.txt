@@ -1,0 +1,1 @@
+{"event_name":"oa_send_text","app_id":"1341559827483723429","sender":{"id":"2193143979850080547"},"recipient":{"id":"6180161732896789656"},"message":{"text":"hello world!","msg_id":"bc621189a3981cc2458d"},"timestamp":"1696866887745"}

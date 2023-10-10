@@ -39,13 +39,13 @@ def hook():
     # request_status_code = request.status_code()
     # print(request_status_code)
     
-    timestamp = request_data_dict['timestamp']
-    event_name = request_data_dict['event_name']
-    sender_id = request_data_dict['sender']['id']
-    recipient_id = request_data_dict['recipient']['id']
-    text = request_data_dict['message']['text']
+    # timestamp = request_data_dict['timestamp']
+    # event_name = request_data_dict['event_name']
+    # sender_id = request_data_dict['sender']['id']
+    # recipient_id = request_data_dict['recipient']['id']
+    # text = request_data_dict['message']['text']
     
-    create_row_baserow(timestamp, event_name, sender_id, recipient_id, text)
+    # create_row_baserow(timestamp, event_name, sender_id, recipient_id, text)
     
     return "Hello World"
 

@@ -48,7 +48,7 @@ def create_row_baserow_opportunities_table(submission_id, opportunitie_name,cont
         "Date Submitted": dateSubmitted,
         "ghi chú": comment,
         "Contact": [
-            contact_id
+            "contact_id"
         ],
         "Opportunitie name": opportunitie_name,
     }

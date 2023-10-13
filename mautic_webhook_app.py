@@ -45,7 +45,7 @@ def hook():
     request_data_dict = json.loads(request_data.decode('utf-8'))
     print(type(request_data_dict))
     
-    contact_data = request_data_dict['mautic.form_on_submit'][0]['contact']
+    contact_data = request_data_dict['mautic.lead_post_save_new'][0]['contact']
     
     contact_id = contact_data['id']
     full_name = contact_data['fields']['core']['full_name']['value']

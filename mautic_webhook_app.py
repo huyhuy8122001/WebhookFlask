@@ -45,6 +45,8 @@ def hook():
     request_data_dict = json.loads(request_data.decode('utf-8'))
     print(type(request_data_dict))
     
+    
+    
     contact_data = request_data_dict['mautic.lead_post_save_new'][0]['contact']
     
     contact_id = contact_data['id']

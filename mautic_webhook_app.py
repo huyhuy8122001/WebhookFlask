@@ -4,8 +4,8 @@ import json
 
 DATABASE_TOKEN = "iFgDQSuA9HIKiUyF9G2oo8I099cIaPJu"
 
-def create_row_baserow(submission_id, contact_id, date_submitted, ip_address, vi_tri_ung_tuyen, ho_ten, sdt, email, gioi_thieu_ban_than, cv_file, chinh_sach_va_dieu_khoan):
-    url = "http://178.128.110.168:8080/api/database/rows/table/1156/?user_field_names=true"
+def create_row_baserow(contact_id, full_name, firstname, lastname, mobile, phone, email, last_active, points, stage, company, position, website, comment):
+    url = "http://178.128.110.168:8080/api/database/rows/table/1160/?user_field_names=true"
 
     header = {
         "Authorization": f"Token {DATABASE_TOKEN}",
@@ -13,17 +13,20 @@ def create_row_baserow(submission_id, contact_id, date_submitted, ip_address, vi
     }
 
     data = { 
-        "Submission ID": submission_id,
-        "Contact ID": contact_id,
-        "Date Submitted": date_submitted,
-        "IP address": ip_address,
-        "Vị trí ứng tuyển": vi_tri_ung_tuyen,
-        "Họ tên đầy đủ của bạn": ho_ten,
-        "Số di động của bạn": sdt,
-        "Email nhận kết quả tuyển": email,
-        "Giới thiệu bản thân (không bắt buộc)": gioi_thieu_ban_than,
-        "CV của bạn": cv_file,
-        "Chính sách và điều khoản": chinh_sach_va_dieu_khoan
+        "ID": contact_id,
+        "points": points,
+        "last_active": last_active,
+        "firstname": firstname,
+        "lastname": lastname,
+        "company": company,
+        "position": position,
+        "email": email,
+        "phone": phone,
+        "mobile": mobile,
+        "website": website,
+        "full_name": full_name,
+        "comment": comment,
+        "Stage": stage,
     }
 
     requests.post(
@@ -42,21 +45,26 @@ def hook():
     request_data_dict = json.loads(request_data.decode('utf-8'))
     print(type(request_data_dict))
     
-    form_on_submit = request_data_dict['mautic.form_on_submit'][0]['submission']
+    contact_data = request_data_dict['mautic.form_on_submit'][0]['contact']
     
-    submission_id = form_on_submit['id']
-    contact_id = form_on_submit['lead']['id']
-    date_submitted = form_on_submit['dateSubmitted']
-    ip_address = form_on_submit['ipAddress']['ipAddress']
-    vi_tri_ung_tuyen = form_on_submit['results']['vi_tri_ung_tuyen2']
-    ho_ten = form_on_submit['results']['ho_ten_day_du_cua_ban']
-    sdt = form_on_submit['results']['so_di_dong_cua_ban']
-    email = form_on_submit['results']['email_nhan_ket_qua_tuyen']
-    gioi_thieu_ban_than = form_on_submit['results']['gioi_thieu_ban_than_khong']
-    cv_file = form_on_submit['results']['cv_cua_ban']
-    chinh_sach_va_dieu_khoan = form_on_submit['results']['label']
+    contact_id = contact_data['id']
+    full_name = contact_data['fields']['core']['full_name']['value']
+    firstname = contact_data['fields']['core']['firstname']['value']
+    lastname = contact_data['fields']['core']['lastname']['value']
+    mobile = contact_data['fields']['core']['mobile']['value']
+    phone = contact_data['fields']['core']['phone']['value']
+    email = contact_data['fields']['core']['email']['value']
+    last_active = contact_data['fields']['core']['last_active']['value']
+    points = contact_data['points']
+    stage = contact_data['stage']
+    company = contact_data['fields']['core']['company']['value']
+    position = contact_data['fields']['core']['position']['value']
+    website = contact_data['fields']['core']['website']['value']
+    comment = contact_data['fields']['core']['comment']['value']
     
-    create_row_baserow(submission_id, contact_id, date_submitted, ip_address, vi_tri_ung_tuyen, ho_ten, sdt, email, gioi_thieu_ban_than, cv_file, chinh_sach_va_dieu_khoan)
+    #create_row_baserow(submission_id, contact_id, date_submitted, ip_address, vi_tri_ung_tuyen, ho_ten, sdt, email, gioi_thieu_ban_than, cv_file, chinh_sach_va_dieu_khoan)
+    create_row_baserow(contact_id, full_name, firstname, lastname, mobile, phone, email, last_active, points, stage, company, position, website, comment)
+    
     
     return "Hello World"
 

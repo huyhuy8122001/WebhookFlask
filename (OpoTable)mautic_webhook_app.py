@@ -69,7 +69,7 @@ def hook():
     request_data_dict = json.loads(request_data.decode('utf-8'))
     print(type(request_data_dict))
     
-    if list(request_data.keys())[0] == "mautic.lead_post_save_new":
+    if list(request_data_dict.keys())[0] == "mautic.lead_post_save_new":
     
         contact_data = request_data_dict['mautic.lead_post_save_new'][0]['contact']
         
@@ -91,7 +91,7 @@ def hook():
         #create_row_baserow(submission_id, contact_id, date_submitted, ip_address, vi_tri_ung_tuyen, ho_ten, sdt, email, gioi_thieu_ban_than, cv_file, chinh_sach_va_dieu_khoan)
         create_row_baserow(contact_id, full_name, firstname, lastname, mobile, phone, email, last_active, points, stage, company, position, website, comment)
         
-    elif list(request_data.keys())[0] == "mautic.form_on_submit":
+    elif list(request_data_dict.keys())[0] == "mautic.form_on_submit":
         
         form_on_submit = request_data_dict['mautic.form_on_submit'][0]['submission']
         

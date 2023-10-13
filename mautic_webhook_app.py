@@ -54,7 +54,7 @@ def hook():
     mobile = contact_data['fields']['core']['mobile']['value']
     phone = contact_data['fields']['core']['phone']['value']
     email = contact_data['fields']['core']['email']['value']
-    last_active = contact_data['last_active']
+    last_active = contact_data['lastActive']
     points = contact_data['points']
     stage = contact_data['stage']
     company = contact_data['fields']['core']['company']['value']

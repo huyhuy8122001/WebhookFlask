@@ -94,35 +94,32 @@ def hook():
         
     elif list(request_data_dict.keys())[0] == "mautic.form_on_submit":
         
-        form_id = request_data_dict['mautic.form_on_submit'][0]['submission']['id']
+        form_id = request_data_dict['mautic.form_on_submit'][0]['submission']['form']['id']
 
-        # if form_id == 38:
+        if form_id == 38:
 
-        form_on_submit = request_data_dict['mautic.form_on_submit'][0]['submission']
+            form_on_submit = request_data_dict['mautic.form_on_submit'][0]['submission']
+            
+            submission_id = form_on_submit['id']
+            opportunitie_name = form_on_submit['results']['chon_loai']
+            contact_id = form_on_submit['lead']['id']
+            comment = form_on_submit['lead']['fields']['core']['comment']['value']
+            dateSubmitted = form_on_submit['dateSubmitted']
+            
+            create_row_baserow_opportunities_table(submission_id, opportunitie_name, contact_id, comment, dateSubmitted)
         
-        submission_id = form_on_submit['id']
-        opportunitie_name = form_on_submit['results']['chon_loai']
-        contact_id = form_on_submit['lead']['id']
-        comment = form_on_submit['lead']['fields']['core']['comment']['value']
-        dateSubmitted = form_on_submit['dateSubmitted']
+        elif form_id == 1:
+
+            form_on_submit = request_data_dict['mautic.form_on_submit'][0]['submission']
+
+            submission_id = form_on_submit['id']
+            opportunitie_name = form_on_submit['form']['name']
+            contact_id = form_on_submit['lead']['id']
+            dateSubmitted = form_on_submit['dateSubmitted']
         
-        create_row_baserow_opportunities_table(submission_id, opportunitie_name, contact_id, comment, dateSubmitted)
-    
-        # elif form_id == 1:
+            create_row_baserow_opportunities_table(submission_id, opportunitie_name, contact_id, "",dateSubmitted)
 
-        #     form_on_submit = request_data_dict['mautic.form_on_submit'][0]['submission']
 
-        #     submission_id = form_on_submit['id']
-        #     opportunitie_name = form_on_submit['form']['name']
-        #     contact_id = form_on_submit['lead']['id']
-        #     dateSubmitted = form_on_submit['dateSubmitted']
-        
-        #     create_row_baserow_opportunities_table(submission_id, opportunitie_name, contact_id, "",dateSubmitted)
-
-        # else:
-        #     return "Hello World"
-    
-           
     return "Hello World"
 
 if __name__ == "__main__":

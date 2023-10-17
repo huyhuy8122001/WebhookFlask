@@ -6,10 +6,10 @@ request_data_dict = {
   "mautic.form_on_submit": [
     {
       "submission": {
-        "id": 1009,
+        "id": 1026,
         "ipAddress": {
-          "ipAddress": "2001:ee0:d748:6240:70b5:ef79:a60e:f8ac",
-          "id": 46127,
+          "ipAddress": "2001:ee0:d748:6240:aa90:868d:a4fb:ce4c",
+          "id": 46517,
           "ipDetails": {
             "city": "Ho Chi Minh City",
             "region": "Ho Chi Minh",
@@ -30,7 +30,7 @@ request_data_dict = {
           "category": None
         },
         "lead": {
-          "id": 333745,
+          "id": 335253,
           "points": 0,
           "color": None,
           "fields": {
@@ -125,8 +125,8 @@ request_data_dict = {
                 "alias": "full_name",
                 "type": "text",
                 "properties": [],
-                "value": "Nguyen Quang Huy test form 3",
-                "normalizedValue": "Nguyen Quang Huy test form 3"
+                "value": "Nguyen Quang Huy test form 23",
+                "normalizedValue": "Nguyen Quang Huy test form 23"
               },
               "role": {
                 "id": 52,
@@ -340,8 +340,8 @@ request_data_dict = {
                 "alias": "company",
                 "type": "text",
                 "properties": [],
-                "value": "test com1",
-                "normalizedValue": "test com1"
+                "value": "test com23",
+                "normalizedValue": "test com23"
               },
               "position": {
                 "id": 5,
@@ -360,8 +360,8 @@ request_data_dict = {
                 "alias": "email",
                 "type": "email",
                 "properties": [],
-                "value": "nguyenquanghuytestform3@gmail.com",
-                "normalizedValue": "nguyenquanghuytestform3@gmail.com"
+                "value": "Nguyenquangtest23@gmail.com",
+                "normalizedValue": "Nguyenquangtest23@gmail.com"
               },
               "mobile": {
                 "id": 7,
@@ -370,8 +370,8 @@ request_data_dict = {
                 "alias": "mobile",
                 "type": "tel",
                 "properties": [],
-                "value": "889922991",
-                "normalizedValue": "889922991"
+                "value": "889920201",
+                "normalizedValue": "889920201"
               },
               "phone": {
                 "id": 8,
@@ -594,23 +594,30 @@ request_data_dict = {
           }
         },
         "trackingId": None,
-        "dateSubmitted": "2023-10-13T16:20:57+07:00",
+        "dateSubmitted": "2023-10-17T14:27:08+07:00",
         "referer": "https:\\/\\/am.epacific.net\\/s\\/forms\\/preview\\/38",
         "page": None,
         "results": {
-          "ten": "Nguyen Quang Huy test form 3",
-          "so_dien_thoai": 889922991,
-          "email": "nguyenquanghuytestform3@gmail.com",
-          "ten_cong_ty_to_chuc": "test com1",
+          "ten": "Nguyen Quang Huy test form 23",
+          "so_dien_thoai": 889920201,
+          "email": "Nguyenquangtest23@gmail.com",
+          "ten_cong_ty_to_chuc": "test com23",
           "chon_loai": "reg-consultancy",
           "ghi_chu": "Ghi ch\\u00fa",
           "xac_nhan1": "T\\u00f4i x\\u00e1c nh\\u1eadn"
         }
       },
-      "timestamp": "2023-10-13T16:21:00+07:00"
+      "timestamp": "2023-10-17T14:27:13+07:00"
     }
   ]
 }
 
-form_id = request_data_dict['mautic.form_on_submit'][0]['submission']['id']
-print(type(form_id))
+form_id = request_data_dict['mautic.form_on_submit'][0]['submission']['form']['id']
+print(form_id)
+if form_id == 38:
+
+    print(form_id)
+
+elif form_id == 1:
+
+    print(form_id)

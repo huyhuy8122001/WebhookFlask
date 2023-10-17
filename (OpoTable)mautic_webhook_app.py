@@ -21,7 +21,6 @@ def create_row_baserow(contact_id, full_name, firstname, lastname, mobile, phone
         "firstname": firstname,
         "lastname": lastname,
         "company": company,
-        "position": position,
         "email": email,
         "phone": phone,
         "mobile": mobile,

@@ -2,7 +2,7 @@ import re
 import json
 import requests
 
-request_data = {
+request_data_dict = {
   "mautic.form_on_submit": [
     {
       "submission": {
@@ -612,4 +612,5 @@ request_data = {
   ]
 }
 
-print(list(request_data.keys())[0] == "mautic.form_on_submit")
+form_id = request_data_dict['mautic.form_on_submit'][0]['submission']['id']
+print(type(form_id))

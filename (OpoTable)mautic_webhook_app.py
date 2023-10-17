@@ -4,8 +4,10 @@ import json
 
 DATABASE_TOKEN = "iFgDQSuA9HIKiUyF9G2oo8I099cIaPJu"
 
+host = "http://report.hq-devlab.cloud:8080"
+
 def create_row_baserow(contact_id, full_name, firstname, lastname, mobile, phone, email, last_active, points, stage, company, position, website, comment):
-    url = "http://178.128.110.168:8080/api/database/rows/table/1160/?user_field_names=true"
+    url = f"{host}/api/database/rows/table/1160/?user_field_names=true"
 
     header = {
         "Authorization": f"Token {DATABASE_TOKEN}",
@@ -36,7 +38,7 @@ def create_row_baserow(contact_id, full_name, firstname, lastname, mobile, phone
     )
 
 def create_row_baserow_opportunities_table(submission_id, opportunitie_name,contact_id, comment, dateSubmitted):
-    url = "http://178.128.110.168:8080/api/database/rows/table/1165/?user_field_names=true"
+    url = f"{host}/api/database/rows/table/1165/?user_field_names=true"
 
     header = {
         "Authorization": f"Token {DATABASE_TOKEN}",
@@ -120,6 +122,7 @@ def hook():
 
         else:
             return "Hello World"
+        
     else:     
         return "Hello World"
 

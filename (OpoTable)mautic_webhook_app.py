@@ -2,7 +2,7 @@ from flask import Flask, request, logging, Response
 import requests
 import json
 
-DATABASE_TOKEN = "iFgDQSuA9HIKiUyF9G2oo8I099cIaPJu"
+DATABASE_TOKEN = "A2WseJWQzGQmTKWv540A1PnsJp3PU7ms"
 
 host = "http://report.hq-devlab.cloud:8080"
 

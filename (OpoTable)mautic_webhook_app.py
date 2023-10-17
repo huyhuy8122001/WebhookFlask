@@ -96,31 +96,31 @@ def hook():
         
         form_id = request_data_dict['mautic.form_on_submit'][0]['submission']['id']
 
-        if form_id == 38:
+        # if form_id == 38:
 
-            form_on_submit = request_data_dict['mautic.form_on_submit'][0]['submission']
-            
-            submission_id = form_on_submit['id']
-            opportunitie_name = form_on_submit['results']['chon_loai']
-            contact_id = form_on_submit['lead']['id']
-            comment = form_on_submit['lead']['fields']['core']['comment']['value']
-            dateSubmitted = form_on_submit['dateSubmitted']
-            
-            create_row_baserow_opportunities_table(submission_id, opportunitie_name, contact_id, comment, dateSubmitted)
+        form_on_submit = request_data_dict['mautic.form_on_submit'][0]['submission']
         
-        elif form_id == 1:
-
-            form_on_submit = request_data_dict['mautic.form_on_submit'][0]['submission']
-
-            submission_id = form_on_submit['id']
-            opportunitie_name = form_on_submit['form']['name']
-            contact_id = form_on_submit['lead']['id']
-            dateSubmitted = form_on_submit['dateSubmitted']
+        submission_id = form_on_submit['id']
+        opportunitie_name = form_on_submit['results']['chon_loai']
+        contact_id = form_on_submit['lead']['id']
+        comment = form_on_submit['lead']['fields']['core']['comment']['value']
+        dateSubmitted = form_on_submit['dateSubmitted']
         
-            create_row_baserow_opportunities_table(submission_id, opportunitie_name, contact_id, "",dateSubmitted)
+        create_row_baserow_opportunities_table(submission_id, opportunitie_name, contact_id, comment, dateSubmitted)
+    
+        # elif form_id == 1:
 
-        else:
-            return "Hello World"
+        #     form_on_submit = request_data_dict['mautic.form_on_submit'][0]['submission']
+
+        #     submission_id = form_on_submit['id']
+        #     opportunitie_name = form_on_submit['form']['name']
+        #     contact_id = form_on_submit['lead']['id']
+        #     dateSubmitted = form_on_submit['dateSubmitted']
+        
+        #     create_row_baserow_opportunities_table(submission_id, opportunitie_name, contact_id, "",dateSubmitted)
+
+        # else:
+        #     return "Hello World"
         
     else:     
         return "Hello World"

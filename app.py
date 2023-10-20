@@ -1,6 +1,7 @@
 from flask import Flask, request, logging, Response
 import requests
 import json
+import point_change_event
 
 DATABASE_TOKEN = "A2WseJWQzGQmTKWv540A1PnsJp3PU7ms"
 
@@ -118,6 +119,17 @@ def hook():
             dateSubmitted = form_on_submit['dateSubmitted']
         
             create_row_baserow_opportunities_table(submission_id, opportunitie_name, contact_id, "",dateSubmitted)
+
+    elif list(request_data_dict.keys())[0] == "mautic.lead_points_change":
+        
+        contact_id = request_data_dict["mautic.lead_points_change"][0]["contact"]["id"]
+        new_points = request_data_dict["mautic.lead_points_change"][0]["points"]["new_points"]
+        last_active = request_data_dict["mautic.lead_points_change"][0]["contact"]["lastActive"]
+
+        row_id = point_change_event.search_row_id(contact_id=contact_id)
+
+        point_change_event.update_row(row_id=row_id, last_active=last_active, points=new_points)
+                
 
     return "Hello World"
 

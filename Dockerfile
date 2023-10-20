@@ -10,4 +10,7 @@ RUN pip3 install -r requirements.txt
 COPY ./point_change_event.py ./python-docker/point_change_event.py
 COPY ./app.py ./python-docker
 
-CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
+
+ENTRYPOINT [ "python" ]
+
+CMD ["app.py" ]

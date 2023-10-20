@@ -7,8 +7,7 @@ WORKDIR /python-docker
 COPY requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
 
-COPY ./point_change_event.py ./python-docker/point_change_event.py
-COPY ./app.py ./python-docker
+COPY . /python-docker
 
 
 ENTRYPOINT [ "python" ]
